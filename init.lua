@@ -727,52 +727,6 @@ require('lazy').setup({
       signature = { enabled = true },
     },
   },
-  {
-    "catgoose/nvim-colorizer.lua",
-    init = function() vim.opt.termguicolors = true end,
-    event = "BufReadPre",
-    config = function()
-      require("colorizer").setup({
-        user_default_options = {
-          names = false,
-        },
-      })
-    end,
-  },
-  {
-    "catppuccin/nvim",
-    name = "catppuccin",
-    priority = 999,
-  },
-  {
-    "rktjmp/lush.nvim",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      vim.cmd.colorscheme("Ztheme")
-    end,
-  },
-  { -- You can easily change to a different colorscheme.
-    -- Change the name of the colorscheme plugin below, and then
-    -- change the command in the config to whatever the name of that colorscheme is.
-    --
-    -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-    'folke/tokyonight.nvim',
-    priority = 998, -- Make sure to load this before all the other start plugins.
-    config = function()
-      ---@diagnostic disable-next-line: missing-fields
-      require('tokyonight').setup {
-        styles = {
-          comments = { italic = false }, -- Disable italics in comments
-        },
-      }
-
-      -- Load the colorscheme here.
-      -- Like many other themes, this one has different styles, and you could load
-      -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-    end,
-  },
-
   -- Highlight todo, notes, etc in comments
   {
     'folke/todo-comments.nvim',
@@ -883,14 +837,11 @@ require('lazy').setup({
       })
     end,
   },
-  {
-    "seblyng/roslyn.nvim",
-    ft = "cs",
-    opts = {
-      filewatching = "roslyn",
-    },
-  },
-  require("kickstart.plugins.neo-tree"),
+  require("custom.plugins.colorizer"),
+  require("custom.plugins.lush"),
+  require("custom.plugins.neo-tree"),
+  require("custom.plugins.nwscript"),
+  require("custom.plugins.roslyn"),
 
   -- The following comments only work if you have downloaded the kickstart repo, not just copy pasted the
   -- init.lua. If you want these files, they are in the repository, so you can just download them and
