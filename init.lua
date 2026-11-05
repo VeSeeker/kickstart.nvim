@@ -71,7 +71,8 @@ vim.o.inccommand = 'split'
 vim.o.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
-vim.o.scrolloff = 25
+-- vim.o.scrolloff = 25
+vim.o.scrolloff = math.floor(vim.o.lines * 0.3)
 
 -- if performing an operation that would fail due to unsaved changes in the buffer (like `:q`),
 -- instead raise a dialog asking if you wish to save the current file(s)
@@ -841,7 +842,9 @@ require('lazy').setup({
   require("custom.plugins.lush"),
   require("custom.plugins.neo-tree"),
   require("custom.plugins.nwscript"),
+  require("custom.plugins.render-markdown"),
   require("custom.plugins.roslyn"),
+  require("custom.plugins.vimtex"),
 
   -- The following comments only work if you have downloaded the kickstart repo, not just copy pasted the
   -- init.lua. If you want these files, they are in the repository, so you can just download them and
